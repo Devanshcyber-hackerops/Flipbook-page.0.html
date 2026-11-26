@@ -1,0 +1,151 @@
+:root {
+    --paper: #E8D8B5;
+    --brown: #654321;
+    --burgundy: #702C3B;
+    --green: #354B35;
+    --gold: #B08D57;
+    --ink: #29251F;
+    --paper-light: #F3EAD3;
+    --paper-dark: #DEC99E;
+    --shadow: rgba(41, 37, 31, 0.25);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#home-page {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.25rem;
+}
+
+/* Rectangular Book Navigation Card */
+#navigation {
+    position: relative;
+    width: 100%;
+    max-width: 680px;
+    background-color: var(--paper-light);
+    border: 2px solid var(--brown);
+    border-left: 14px solid var(--burgundy);
+    border-radius: 0;
+    padding: 2.5rem 2.25rem;
+    box-shadow: 0 12px 26px var(--shadow),
+                inset 18px 0 24px -14px rgba(41, 37, 31, 0.35);
+    text-align: center;
+}
+
+/* Stacked Page Edge Strip on Right */
+#navigation::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    right: -9px;
+    width: 9px;
+    height: calc(100% - 8px);
+    background: repeating-linear-gradient(
+        to right,
+        var(--paper-light),
+        var(--paper-light) 2px,
+        var(--gold) 2px,
+        var(--gold) 3px
+    );
+    border: 1px solid var(--brown);
+    border-left: none;
+    border-radius: 0;
+}
+
+#navigation > legend {
+    background-color: var(--burgundy);
+    color: var(--paper-light);
+    padding: 0.4rem 1.25rem;
+    border: 2px solid var(--gold);
+    border-radius: 0;
+    text-align: left;
+}
+
+#page-heading {
+    font-size: 1.35rem;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    color: var(--paper-light);
+    margin: 0;
+}
+
+#section-heading {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--gold);
+}
+
+/* Navigation Links Styled as Book Buttons */
+#navigation a {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 1rem;
+    padding: 0.9rem 1.5rem;
+    background-color: var(--green);
+    color: var(--paper-light);
+    border: 2px solid var(--gold);
+    border-radius: 0;
+    text-decoration: none;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1.08rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(41, 37, 31, 0.16);
+}
+
+#navigation a:last-of-type {
+    margin-bottom: 0;
+}
+
+#navigation a:hover,
+#navigation a:focus-visible {
+    background-color: var(--burgundy);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(41, 37, 31, 0.25);
+    outline: none;
+}
+
+#about-button {
+    border-left: 8px solid var(--gold);
+}
+
+#diet-button {
+    border-left: 8px solid var(--paper-dark);
+}
+
+#thali-button {
+    border-left: 8px solid var(--gold);
+}
+
+@media (max-width: 540px) {
+    #navigation {
+        padding: 1.75rem 1.25rem;
+        border-left-width: 10px;
+    }
+
+    #section-heading {
+        font-size: 1.25rem;
+    }
+
+    #navigation a {
+        font-size: 1rem;
+        padding: 0.8rem 1rem;
+    }
+}

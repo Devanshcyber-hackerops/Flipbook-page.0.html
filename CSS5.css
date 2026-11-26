@@ -1,0 +1,203 @@
+:root {
+    --paper: #E8D8B5;
+    --brown: #654321;
+    --burgundy: #702C3B;
+    --green: #354B35;
+    --gold: #B08D57;
+    --ink: #29251F;
+    --paper-light: #F3EAD3;
+    --paper-dark: #DEC99E;
+    --shadow: rgba(41, 37, 31, 0.24);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#about-page {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1rem;
+    line-height: 1.72;
+    min-height: 100vh;
+    padding: 2.25rem 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-x: hidden;
+}
+
+/* Rectangular Book Container */
+#about-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    background-color: var(--paper-light);
+    border: 2px solid var(--brown);
+    border-left: 14px solid var(--burgundy);
+    border-radius: 0;
+    padding: 2.25rem 2.5rem;
+    box-shadow:
+        0 14px 28px var(--shadow),
+        inset 18px 0 24px -14px rgba(41, 37, 31, 0.36);
+}
+
+/* Stacked Right Page Edge */
+#about-container::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    right: -10px;
+    width: 10px;
+    height: calc(100% - 8px);
+    background: repeating-linear-gradient(
+        to right,
+        var(--paper-light),
+        var(--paper-light) 2px,
+        var(--paper-dark) 2px,
+        var(--gold) 3.5px
+    );
+    border: 1px solid var(--brown);
+    border-left: none;
+    border-radius: 0;
+    pointer-events: none;
+}
+
+/* Main Title */
+#about-title {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--burgundy);
+    letter-spacing: 0.4px;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--gold);
+}
+
+/* Content Sections */
+#introduction,
+#motto-section,
+#acknowledgement-section {
+    background-color: var(--paper);
+    border: 1px solid var(--gold);
+    border-left: 6px solid var(--green);
+    border-radius: 0;
+    padding: 1.35rem 1.5rem;
+    margin-bottom: 1.85rem;
+}
+
+#intro-text,
+#acknowledgement-text {
+    font-size: 1rem;
+}
+
+#intro-text strong,
+#acknowledgement-text strong {
+    color: var(--burgundy);
+}
+
+/* Section Headings */
+#motto-title,
+#acknowledgement-title {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 0.75rem;
+}
+
+/* Motto Block */
+#motto-quote {
+    background-color: var(--paper-light);
+    color: var(--burgundy);
+    font-size: 1.15rem;
+    font-style: italic;
+    font-weight: 700;
+    border: 1px solid var(--brown);
+    border-left: 5px solid var(--gold);
+    padding: 0.9rem 1.15rem;
+    margin-bottom: 0.75rem;
+}
+
+#motto-description {
+    color: var(--brown);
+    font-size: 0.98rem;
+}
+
+/* Closing Sign-Off */
+#thank-you {
+    margin-top: 1.25rem;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--burgundy);
+}
+
+/* Page Navigation */
+#page-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 2px solid var(--gold);
+}
+
+#previous-button,
+#next-button {
+    display: inline-block;
+    background-color: var(--green);
+    color: var(--paper-light);
+    border: 2px solid var(--gold);
+    border-radius: 0;
+    padding: 0.65rem 1.35rem;
+    text-decoration: none;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.96rem;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(41, 37, 31, 0.2);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#previous-button:hover,
+#next-button:hover,
+#previous-button:focus-visible,
+#next-button:focus-visible {
+    background-color: var(--burgundy);
+    transform: translateY(-2px);
+    outline: none;
+}
+
+@media (max-width: 600px) {
+    #about-page {
+        padding: 1.25rem 0.85rem;
+    }
+
+    #about-container {
+        padding: 1.4rem 1.15rem;
+        border-left-width: 10px;
+    }
+
+    #about-title {
+        font-size: 1.5rem;
+    }
+
+    #introduction,
+    #motto-section,
+    #acknowledgement-section {
+        padding: 1.1rem 1.15rem;
+    }
+
+    #page-navigation {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+}
