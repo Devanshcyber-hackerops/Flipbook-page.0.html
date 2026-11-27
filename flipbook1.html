@@ -43,13 +43,17 @@
         </ul>
     </fieldset>
 
-   <div class="controls" role="group" aria-label="Flipbook navigation">
-        <a href="flipbook2.html" id="catOpen" class="secondary">Open Category Book</a>
+    <div class="controls" role="group" aria-label="Flipbook navigation">
+        <a href="flipbook2.html" class="secondary">Open Category Book</a>
+        <button type="button" id="catOpen">Open Booklet</button>
         <button type="button" id="catPrev">Previous</button>
         <span id="catCounter">1 / 10</span>
         <button type="button" id="catNext">Next</button>
+        <button type="button" id="catClose">Close Book</button>
     </div>
-<a href="page.2.html" id="backToMenu" class="back-btn">← Back</a>
+
+    <a href="page.2.html" id="backToMenu" class="back-btn">← Back</a>
+
     <div class="flipbook-wrapper" id="flipbookWrapper">
         <div class="flipbook-stage" id="flipbookStage">
             <article class="category-page">
@@ -188,8 +192,8 @@
             catCounter.textContent = `${catIndex + 1} / ${catPages.length}`;
             catPrev.disabled = !isBookOpen || catIndex === 0;
             catNext.disabled = !isBookOpen || catIndex === catPages.length - 1;
-            catOpen.disabled = isBookOpen;
-            catClose.disabled = !isBookOpen;
+            if (catOpen) catOpen.disabled = isBookOpen;
+            if (catClose) catClose.disabled = !isBookOpen;
         }
 
         indexLinks.forEach((btn) => {
@@ -202,17 +206,21 @@
         catNext.addEventListener('click', nextPage);
         catPrev.addEventListener('click', prevPage);
 
-        catClose.addEventListener('click', () => {
-            isBookOpen = false;
-            flipbookWrapper.classList.add('closed');
-            renderCategoryBook();
-        });
+        if (catClose) {
+            catClose.addEventListener('click', () => {
+                isBookOpen = false;
+                flipbookWrapper.classList.add('closed');
+                renderCategoryBook();
+            });
+        }
 
-        catOpen.addEventListener('click', () => {
-            isBookOpen = true;
-            flipbookWrapper.classList.remove('closed');
-            renderCategoryBook();
-        });
+        if (catOpen) {
+            catOpen.addEventListener('click', () => {
+                isBookOpen = true;
+                flipbookWrapper.classList.remove('closed');
+                renderCategoryBook();
+            });
+        }
 
         catPages.forEach((page, i) => {
             page.addEventListener('click', (e) => {
