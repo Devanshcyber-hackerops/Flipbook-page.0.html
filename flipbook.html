@@ -245,67 +245,95 @@
         </div>
     </main>
 
-    <script>
-        const pages = Array.from(document.querySelectorAll('.page'));
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const indicator = document.getElementById('pageIndicator');
-        let currentPage = 0;
+   <script>
+    const pages = Array.from(document.querySelectorAll('.page'));
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const indicator = document.getElementById('pageIndicator');
+    let currentPage = 0;
 
-        function updateBook() {
-            pages.forEach((page, index) => {
-                page.classList.toggle('active', index === currentPage);
-                if (index < currentPage) {
-                    page.classList.add('flipped');
-                    page.style.zIndex = index + 1;
+    function fitAllPages() {
+        pages.forEach((page) => {
+            let min = 10; // Minimum readable px
+            let max = 26; // Maximum px for sparse pages
+            let best = min;
+
+            // Temporarily allow auto-height check via scrollHeight vs clientHeight
+            while (min <= max) {
+                const mid = Math.floor((min + max) / 2);
+                page.style.fontSize = mid + 'px';
+
+                // Check if content overflows vertically (with a 2px safety buffer)
+                if (page.scrollHeight <= page.clientHeight + 2) {
+                    best = mid;
+                    min = mid + 1;
                 } else {
-                    page.classList.remove('flipped');
-                    page.style.zIndex = pages.length - index;
+                    max = mid - 1;
                 }
-            });
-
-            indicator.textContent = `Page ${currentPage + 1} of ${pages.length}`;
-            prevBtn.disabled = currentPage === 0;
-            nextBtn.disabled = currentPage === pages.length - 1;
-        }
-
-        function nextPage() {
-            if (currentPage < pages.length - 1) {
-                currentPage++;
-                updateBook();
             }
-        }
 
-        function prevPage() {
-            if (currentPage > 0) {
-                currentPage--;
-                updateBook();
-            }
-        }
+            page.style.fontSize = best + 'px';
+        });
+    }
 
-        nextBtn.addEventListener('click', nextPage);
-        prevBtn.addEventListener('click', prevPage);
-
+    function updateBook() {
         pages.forEach((page, index) => {
-            page.addEventListener('click', (e) => {
-                if (e.target.closest('a, button')) return;
-                const rect = page.getBoundingClientRect();
-                const clickX = e.clientX - rect.left;
-
-                if (clickX > rect.width * 0.72 && index === currentPage) {
-                    nextPage();
-                } else if (clickX < rect.width * 0.22 && index === currentPage) {
-                    prevPage();
-                }
-            });
+            page.classList.toggle('active', index === currentPage);
+            if (index < currentPage) {
+                page.classList.add('flipped');
+                page.style.zIndex = index + 1;
+            } else {
+                page.classList.remove('flipped');
+                page.style.zIndex = pages.length - index;
+            }
         });
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') nextPage();
-            if (e.key === 'ArrowLeft') prevPage();
-        });
+        indicator.textContent = `Page ${currentPage + 1} of ${pages.length}`;
+        prevBtn.disabled = currentPage === 0;
+        nextBtn.disabled = currentPage === pages.length - 1;
+    }
 
-        updateBook();
-    </script>
+    function nextPage() {
+        if (currentPage < pages.length - 1) {
+            currentPage++;
+            updateBook();
+        }
+    }
+
+    function prevPage() {
+        if (currentPage > 0) {
+            currentPage--;
+            updateBook();
+        }
+    }
+
+    nextBtn.addEventListener('click', nextPage);
+    prevBtn.addEventListener('click', prevPage);
+
+    pages.forEach((page, index) => {
+        page.addEventListener('click', (e) => {
+            if (e.target.closest('a, button')) return;
+            const rect = page.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+
+            if (clickX > rect.width * 0.72 && index === currentPage) {
+                nextPage();
+            } else if (clickX < rect.width * 0.22 && index === currentPage) {
+                prevPage();
+            }
+        });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') nextPage();
+        if (e.key === 'ArrowLeft') prevPage();
+    });
+
+    // Fit text on initial load, font load, and window resize
+    window.addEventListener('resize', fitAllPages);
+    document.fonts.ready.then(fitAllPages);
+    fitAllPages();
+    updateBook();
+</script>
 </body>
 </html>
