@@ -332,3 +332,94 @@ body {
     text-align: left;
     vertical-align: top;
 }
+/* PAGE DESIGN */
+.page {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    overflow: hidden;
+
+    background-color: var(--paper-light);
+    color: var(--ink);
+
+    border: 2px solid var(--brown);
+    border-left: 16px solid var(--burgundy);
+
+    padding: 1.176rem 1.764rem 1.47rem 1.764rem;
+
+    /* 2% smaller */
+    font-size: clamp(15.68px, 1.764vw, 18.62px);
+
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+
+    box-shadow:
+        6px 10px 22px var(--shadow),
+        inset 20px 0 26px -12px rgba(41, 37, 31, 0.34);
+}
+
+/* HEADINGS */
+.section-heading {
+    margin: 0.882em 0 0.343em;
+    padding-bottom: 0.196em;
+
+    border-bottom: 1px solid rgba(176, 141, 87, 0.45);
+
+    font-family: system-ui, sans-serif;
+    font-size: 1.127em;
+    font-weight: 700;
+    color: var(--burgundy);
+    line-height: 1.3;
+}
+
+.page > legend + .section-heading {
+    margin-top: 0.539em;
+}
+
+/* PARAGRAPHS */
+.page p {
+    font-size: 1em;
+    line-height: 1.47;
+    margin-bottom: 0.784em;
+    text-align: left;
+}
+
+/* LISTS */
+.page ul {
+    margin: 0.343em 0 0.784em 1.274em;
+    font-size: 0.931em;
+    line-height: 1.47;
+}
+
+.page li {
+    margin-bottom: 0.294em;
+}
+
+/* TABLES */
+.page table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.49em 0 0.784em;
+    font-size: 0.882em;
+    line-height: 1.37;
+}
+
+.page th,
+.page td {
+    border: 1px solid var(--brown);
+    padding: 0.441em 0.588em;
+    text-align: left;
+    vertical-align: top;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .page {
+        padding: 0.98rem;
+        font-size: 14.7px;
+    }
+}
