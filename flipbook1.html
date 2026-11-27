@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Devansh Kamble">
+    <meta name="description" content="Interactive flipbook showcasing food groups and the ten traditional food categories for Swastik Ahaar.">
+    <link rel="icon" href="Flipbook F Logo on White.png" type="image/x-icon">
+    <link rel="stylesheet" href="CSS7.css">
+    <title>Swastik Ahaar Flipbook</title>
+</head>
+<body>
+    <fieldset>
+        <legend><h2>Food Groups</h2></legend>
+        <p>Food groups are categories of foods that share similar nutritional properties. The main food groups include:</p>
+        <ul>
+            <li>Fruits and vegetables</li>
+            <li>Grains (cereals)</li>
+            <li>Legumes (pulses)</li>
+            <li>Dairy products</li>
+            <li>Meat, poultry, fish and eggs</li>
+            <li>Nuts and seeds</li>
+            <li>Oils and fats</li>
+            <li>Sweets and desserts</li>
+            <li>Beverages</li>
+            <li>Herbs and spices</li>
+        </ul>
+    </fieldset>
+
+    <fieldset id="food-categories-list">
+        <legend><h3>The Ten Food Categories (Click to Jump)</h3></legend>
+        <ul id="categoryIndexList">
+            <li><button type="button" class="index-link" data-page="0">Fruits</button></li>
+            <li><button type="button" class="index-link" data-page="1">Vegetables and green leafy vegetables</button></li>
+            <li><button type="button" class="index-link" data-page="2">Grains and cereals</button></li>
+            <li><button type="button" class="index-link" data-page="3">Pulses and legumes</button></li>
+            <li><button type="button" class="index-link" data-page="4">Roots and tubers</button></li>
+            <li><button type="button" class="index-link" data-page="5">Dairy foods and alternatives</button></li>
+            <li><button type="button" class="index-link" data-page="6">Nuts and seeds</button></li>
+            <li><button type="button" class="index-link" data-page="7">Oils and fats</button></li>
+            <li><button type="button" class="index-link" data-page="8">Herbs and spices</button></li>
+            <li><button type="button" class="index-link" data-page="9">Traditional Indian mixed dishes</button></li>
+        </ul>
+    </fieldset>
+
+   <div class="controls" role="group" aria-label="Flipbook navigation">
+        <a href="flipbook2.html" id="catOpen" class="secondary">Open Category Book</a>
+        <button type="button" id="catPrev">Previous</button>
+        <span id="catCounter">1 / 10</span>
+        <button type="button" id="catNext">Next</button>
+    </div>
+<a href="page.2.html" id="backToMenu" class="back-btn">← Back</a>
+    <div class="flipbook-wrapper" id="flipbookWrapper">
+        <div class="flipbook-stage" id="flipbookStage">
+            <article class="category-page">
+                <span class="page-badge">Category 01</span>
+                <h3>Fruits</h3>
+                <p>Fresh seasonal and regional fruits offering natural vitamins, antioxidants, and dietary fiber.</p>
+                <p class="page-hint">Click right side or press Next to continue →</p>
+            </article>
+
+            <article class="category-page">
+                <span class="page-badge">Category 02</span>
+                <h3>Vegetables and Green Leafy Vegetables</h3>
+                <p>Nutrient-dense vegetables and leafy greens supporting micronutrients, minerals, and everyday vitality.</p>
+                <p class="page-hint">← Click left side for Previous | Click right side for Next →</p>
+            </article>
+
+            <article class="category-page">
+                <span class="page-badge">Category 03</span>
+                <h3>Grains and Cereals</h3>
+                <p>Staple whole grains and millets providing sustained energy and complex carbohydrates.</p>
+                <p class="page-hint">← Click left side for Previous | Click right side for Next →</p>
+            </article>
+
+            <article class="category-page">
+                <span class="page-badge">Category 04</span>
+                <h3>Pulses and Legumes</h3>
+                <p>Lentils, beans, and chickpeas rich in plant protein, fiber, and essential amino acids.</p>
+                <p class="page-hint">← Click left side for Previous | Click right side for Next →</p>
+            </article>
+
+            <article class="category-page">
+                <span class="page-badge">Category 05</span>
+                <h3>Roots and Tubers</h3>
+                <p>Earth-grown staples delivering steady carbohydrates and wholesome culinary texture.</p>
+                <p class="page-hint">← Click left side for Previous | Click right side for Next →</p>
+            </article>
+
+            <article class="category-page">
+                <span class="page-badge">Category 06</span>
+                <h3>Dairy Foods and Alternatives</h3>
+                <p>Milk, curd, paneer, and plant-based alternatives contributing calcium and protein.</p>
+                <p class="page-hint">← Click left side for Previous | Click right side for Next →</p>
+            </article>
+
+            <article class="category-page">
+                <span class="page-badge">Category 07</span>
+                <h3>Nuts and Seeds</h3>
+                <p>Almonds, walnuts, sesame, and flax seeds packed with healthy fats and trace minerals.</p>
+                <p class="page-hint">← Click left side for Previous | Click right side for Next →</p>
+            </article>
+
+            <article class="category-page">
+                <span class="page-badge">Category 08</span>
+                <h3>Oils and Fats</h3>
+                <p>Traditional cold-pressed oils and ghee used mindfully for flavor and fat-soluble nutrient absorption.</p>
+                <p class="page-hint">← Click left side for Previous | Click right side for Next →</p>
+            </article>
+
+            <article class="category-page">
+                <span class="page-badge">Category 09</span>
+                <h3>Herbs and Spices</h3>
+                <p>Aromatic spices and fresh herbs bringing warmth, balance, and traditional depth to every dish.</p>
+                <p class="page-hint">← Click left side for Previous | Click right side for Next →</p>
+            </article>
+
+            <article class="category-page">
+                <span class="page-badge">Category 10</span>
+                <h3>Traditional Indian Mixed Dishes</h3>
+                <p>Balanced combinations of grains, legumes, vegetables, and spices crafted for complete meals.</p>
+                <p class="page-hint">You have reached the final category page.</p>
+            </article>
+        </div>
+    </div>
+
+    <script>
+        const catPages = Array.from(document.querySelectorAll('.category-page'));
+        const indexLinks = Array.from(document.querySelectorAll('.index-link'));
+        const catPrev = document.getElementById('catPrev');
+        const catNext = document.getElementById('catNext');
+        const catClose = document.getElementById('catClose');
+        const catOpen = document.getElementById('catOpen');
+        const catCounter = document.getElementById('catCounter');
+        const flipbookWrapper = document.getElementById('flipbookWrapper');
+
+        let catIndex = 0;
+        let isBookOpen = true;
+
+        function goToPage(targetIndex) {
+            if (!catPages.length) return;
+            catIndex = Math.max(0, Math.min(targetIndex, catPages.length - 1));
+            if (!isBookOpen) {
+                isBookOpen = true;
+                flipbookWrapper.classList.remove('closed');
+            }
+            renderCategoryBook();
+            flipbookWrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function nextPage() {
+            if (catIndex < catPages.length - 1) {
+                catIndex++;
+                renderCategoryBook();
+            }
+        }
+
+        function prevPage() {
+            if (catIndex > 0) {
+                catIndex--;
+                renderCategoryBook();
+            }
+        }
+
+        function renderCategoryBook() {
+            if (!catPages.length) {
+                catCounter.textContent = '0 / 0';
+                catPrev.disabled = true;
+                catNext.disabled = true;
+                return;
+            }
+
+            catPages.forEach((page, i) => {
+                page.classList.toggle('active', i === catIndex);
+                if (i < catIndex) {
+                    page.classList.add('flipped');
+                    page.style.zIndex = i + 1;
+                } else {
+                    page.classList.remove('flipped');
+                    page.style.zIndex = catPages.length - i;
+                }
+            });
+
+            indexLinks.forEach((btn, i) => {
+                btn.classList.toggle('active-index', isBookOpen && i === catIndex);
+            });
+
+            catCounter.textContent = `${catIndex + 1} / ${catPages.length}`;
+            catPrev.disabled = !isBookOpen || catIndex === 0;
+            catNext.disabled = !isBookOpen || catIndex === catPages.length - 1;
+            catOpen.disabled = isBookOpen;
+            catClose.disabled = !isBookOpen;
+        }
+
+        indexLinks.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const pageNum = Number(btn.dataset.page);
+                goToPage(pageNum);
+            });
+        });
+
+        catNext.addEventListener('click', nextPage);
+        catPrev.addEventListener('click', prevPage);
+
+        catClose.addEventListener('click', () => {
+            isBookOpen = false;
+            flipbookWrapper.classList.add('closed');
+            renderCategoryBook();
+        });
+
+        catOpen.addEventListener('click', () => {
+            isBookOpen = true;
+            flipbookWrapper.classList.remove('closed');
+            renderCategoryBook();
+        });
+
+        catPages.forEach((page, i) => {
+            page.addEventListener('click', (e) => {
+                if (!isBookOpen || e.target.closest('a, button')) return;
+                const rect = page.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+
+                if (clickX > rect.width * 0.6 && i === catIndex) {
+                    nextPage();
+                } else if (clickX < rect.width * 0.4 && i === catIndex) {
+                    prevPage();
+                }
+            });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!isBookOpen) return;
+            if (e.key === 'ArrowRight') nextPage();
+            if (e.key === 'ArrowLeft') prevPage();
+        });
+
+        renderCategoryBook();
+    </script>
+</body>
+</html>
